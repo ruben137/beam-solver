@@ -552,9 +552,9 @@ export default function BeamCalculator({ onSwitchMode }: { onSwitchMode?: () => 
             <span>{t("common.guided")}</span>
             <select value={selectedExample} onChange={(event) => loadExample(event.target.value)}>
               <option value="custom">{t("common.custom")}</option>
-              {examples.map((example) => <option key={example.id} value={example.id}>{example.title}</option>)}
+              {examples.map((example) => <option key={example.id} value={example.id}>{t(`examples.single.${example.id}.title`)}</option>)}
             </select>
-            <small>{activeExample?.description ?? t("single.modify")}</small>
+            <small>{activeExample ? t(`examples.single.${activeExample.id}.description`) : t("single.modify")}</small>
           </label>
           <fieldset className="unit-switch">
             <legend>{t("common.units")}</legend>
